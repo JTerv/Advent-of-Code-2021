@@ -7,14 +7,14 @@ public class Day1 {
         FileInputStream fstream = new FileInputStream("inputs/day1input.txt");
         BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 
-        String previousString = "149";
+        int previousInt = Integer.parseInt(br.readLine());
         int countAmount = 0;
 
         for (String line = br.readLine(); line != null; line = br.readLine()) {
-            if (line.compareTo(previousString) >= 1) {
+            if (Integer.parseInt(line) > previousInt) {
                 countAmount++;
             }
-            previousString = line;
+            previousInt = Integer.parseInt(line);
         }
 
         // Close the input stream
@@ -22,4 +22,5 @@ public class Day1 {
 
         System.out.println(countAmount);
     }
+
 }
