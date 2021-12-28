@@ -11,12 +11,7 @@ public class Day2 {
         int totalForwards = 0;
         int totalUp = 0;
 
-/*         System.out.println(firstHalfString("down", list, 5));
-        System.out.println(secondHalfString(list, 0)); */
-
-
-
-         for (int i = 0; i < list.size(); i++) {
+        for (int i = 0; i < list.size(); i++) {
             if (firstHalfString("forward", list, i)) {
                 totalForwards = totalForwards + secondHalfString(list, i);
             } else if (firstHalfString("down", list, i)) {
@@ -32,13 +27,12 @@ public class Day2 {
 
     }
 
-    public static boolean firstHalfString (String testString, List<String> list, int i) {
+    public static boolean firstHalfString(String testString, List<String> list, int i) {
         return testString.equals(list.get(i).substring(0, list.get(i).indexOf(" ")));
     }
 
-    public static int secondHalfString (List<String> list, int i) {
+    public static int secondHalfString(List<String> list, int i) {
         return Integer.parseInt(list.get(i).substring(list.get(i).indexOf(" ") + 1, list.get(i).length()));
     }
-
 
 }
