@@ -1,24 +1,26 @@
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 public class Day1 {
     public static void main(String[] args) throws Exception {
-        FileInputStream fstream = new FileInputStream("inputs/day1input.txt");
-        BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 
-        int previousInt = Integer.parseInt(br.readLine());
+        List<String> list = Files.readAllLines(Paths.get("inputs/day1input.txt"), Charset.defaultCharset());
+
+        // Start previousInt as the first number in the txt file
+        int previousInt = Integer.parseInt(list.get(0));
         int countAmount = 0;
 
-        for (String line = br.readLine(); line != null; line = br.readLine()) {
-            if (Integer.parseInt(line) > previousInt) {
+        for (int i = 0; i < list.size(); i++) {
+            if (Integer.parseInt(list.get(i)) > previousInt) {
                 countAmount++;
             }
-            previousInt = Integer.parseInt(line);
+            previousInt = Integer.parseInt(list.get(i));
         }
-
-        // Close the input stream
-        fstream.close();
 
         System.out.println(countAmount);
     }
