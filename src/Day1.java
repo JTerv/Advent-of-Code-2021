@@ -15,7 +15,7 @@ public class Day1 {
 
         int measureWindow = 3;
         int rollingCurrTotalValue = 0;
-        int rollingPrevTotalValue = Integer.parseInt(list.get(0) + list.get(1) + list.get(2));
+        int rollingPrevTotalValue = Integer.parseInt(list.get(0)) + Integer.parseInt(list.get(1)) + Integer.parseInt(list.get(2));
         //int rollingPrevTotalValue = 0;
 
         for (int i = 0; i < list.size(); i++) {
